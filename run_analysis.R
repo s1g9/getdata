@@ -5,12 +5,13 @@ path<-"./Documents/UCI HAR Dataset"
 library(dplyr)
 library(tidyr)
 
-#
+# Reading features data to map column no in observation vector with its respective feature
 data<-read.table(paste(path,"features.txt",sep="/"))
 names(data)<-c("id","variable")
 features<-tbl_df(data)
 
-# Finding the column no of mean and standard deviation related features. Note that u can change the substrings in grep function to work out the same problem for other features.
+# Finding the column no of mean and standard deviation related features. 
+# Note that u can change the substrings in grep function to work out the same problem for other features.
 mean_features<-features[grep("mean()",features$variable,fixed=TRUE),]
 std_features<-features[grep("std()",features$variable,fixed=TRUE),]
 
