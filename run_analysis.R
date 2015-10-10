@@ -6,9 +6,8 @@ library(dplyr)
 library(tidyr)
 
 # Reading features data to map column no in observation vector with its respective feature
-data<-read.table(paste(path,"features.txt",sep="/"))
-names(data)<-c("id","variable")
-features<-tbl_df(data)
+features<-tbl_df(read.table(paste(path,"features.txt",sep="/")))
+names(features)<-c("id","variable")
 
 # Finding the column no of mean and standard deviation related features. 
 # Note that u can change the substrings in grep function to work out the same problem for other features.
@@ -24,7 +23,7 @@ subject_test<-tbl_df(read.table(paste(path,"test","subject_test.txt",sep="/")))
 subject_train<-tbl_df(read.table(paste(path,"train","subject_train.txt",sep="/")))
 subject<-bind_rows(subject_test,subject_train)
 
-# Reading the data of observations take while performing the activity from test and train folders. 
+# Reading the data of observations took while performing the activity from test and train folders. 
 # Note that only observations related to mean and std deviations are being read. Hence, (TASK 2 ACCOMPLISHED)
 X_test<-select(tbl_df(read.table(paste(path,"test","X_test.txt",sep="/"))),mean_std_features$id)
 X_train<-select(tbl_df(read.table(paste(path,"train","X_train.txt",sep="/"))),mean_std_features$id)
