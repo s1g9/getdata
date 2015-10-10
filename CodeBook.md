@@ -41,6 +41,7 @@ together :used to store combined dataset of subject,activity and observations in
 Now, lets see the transformations made to the dataset
 -----------------------------------------------------------------------------------------------------------------------------
 features: tabular data frame form of features.txt
+
 Source: local data frame [561 x 2]
 
       id          variable
@@ -70,6 +71,7 @@ Source: local data frame [561 x 2]
 ----------------------------------------
 
 mean_features: Subsetting the features dataset to get features realed to mean
+
 Source: local data frame [33 x 2]
 
       id              variable
@@ -97,6 +99,7 @@ Source: local data frame [33 x 2]
   ...                   ...
 ----------------------------------------
 std_features: Subsetting the features dataset to get features realed to standard deviation
+
 Source: local data frame [33 x 2]
 
       id             variable
@@ -124,11 +127,12 @@ Source: local data frame [33 x 2]
 ..   ...                  ...
 ----------------------------------------
 mean_std_features : Combining mean and standard deviation features .Also rearranging by id
+
 Source: local data frame [66 x 2]
 
       id             variable
    (int)               (fctr)
-   
+
      1    tBodyAcc-mean()-X
 
      2    tBodyAcc-mean()-Y
@@ -151,6 +155,7 @@ Source: local data frame [66 x 2]
 ..   ...                  ...
 ----------------------------------------
 subject_test : tabular data frame form of subject_test.txt
+
 Source: local data frame [2,947 x 1]
 
       V1
@@ -182,6 +187,7 @@ Also, see table(subject_test)
 ----------------------------------------
 
 subject_train : tabular data frame form of subject_train.txt
+
 Source: local data frame [7,352 x 1]
 
       V1
@@ -212,6 +218,7 @@ Also, see table(subject_train)
 347 341 302 325 308 281 316 323 328 366 368 360 408 321 372 409 392 376 382 344 383 
 ----------------------------------------
 subject : Combining subject_test and subject_train .Also keeping the order first test dataset and then train dataset
+
 Source: local data frame [10,299 x 1]
 
       V1
@@ -242,6 +249,7 @@ Also, see table(subject)
 347 302 341 317 302 325 308 281 288 294 316 320 327 323 328 366 368 364 360 354 408 321 372 381 409 392 376 382 344 383
 ------------------------------------------------------------------------------------------------------------------------
 X_test : Subset of the X_test.txt on the basis of the mean_std_features required for the dataset. Note that as the mean_std_features was arranged in order. So, will be this dataset be ordered.
+
 Source: local data frame [2,947 x 66]
 
        V1          V2          V3         V4         V5         V6       V41        V42       V43        V44        V45        V46        V81
@@ -277,6 +285,7 @@ Variables not shown: V82 (dbl), V83 (dbl), V84 (dbl), V85 (dbl), V86 (dbl), V121
 ------------------------------------------------------------------------------------------------------------------------
 
  X_train: Subset of the X_train.txt on the basis of the mean_std_features required for the dataset. Note that the order of features is same as X_test variable.
+
 Source: local data frame [7,352 x 66]
 
           V1           V2         V3         V4         V5         V6       V41        V42        V43        V44        V45        V46        V81
@@ -311,6 +320,7 @@ Variables not shown: V82 (dbl), V83 (dbl), V84 (dbl), V85 (dbl), V86 (dbl), V121
   V529 (dbl), V530 (dbl), V542 (dbl), V543 (dbl)
 ------------------------------------------------------------------------------------------------------------------------
  X : Combined the subsets X_test and X_train row-wise. The row-wise bind will give us correct dataset as both the datasets are ordered by mean_std_features$id in horizontal axis and are in order of test then train in vertical axis 
+  
   Source: local data frame [10,299 x 66]
 
           V1          V2          V3         V4         V5         V6       V41        V42       V43        V44        V45        V46        V81
@@ -345,6 +355,7 @@ Variables not shown: V82 (dbl), V83 (dbl), V84 (dbl), V85 (dbl), V86 (dbl), V121
   V529 (dbl), V530 (dbl), V542 (dbl), V543 (dbl)
 ------------------------------------------------------------------------------------------------------------------------
  Y_test : tabular data frame form of Y_test.txt
+
 Source: local data frame [2,947 x 1]
 
       V1
@@ -374,6 +385,7 @@ Source: local data frame [2,947 x 1]
 
 ------------------------------------------------------------------------------------------------------------------------
 Y_train : tabular data frame form of Y_train.txt
+
 Source: local data frame [7,352 x 1]
 
       V1
@@ -402,6 +414,7 @@ Source: local data frame [7,352 x 1]
    ..
 ------------------------------------------------------------------------------------------------------------------------
 activities : the data frame of acitivies labels from activity_labels.txt
+
 Source: local data frame [6 x 2]
 
      V1                 V2
@@ -421,6 +434,7 @@ Source: local data frame [6 x 2]
 
 ------------------------------------------------------------------------------------------------------------------------
 Y : the combined data frame of Y_test and Y_train in respective order. Also the activity no's are replaced by acitivity names
+
 Source: local data frame [10,299 x 1]
 
          V2
@@ -450,6 +464,7 @@ Source: local data frame [10,299 x 1]
 
 ------------------------------------------------------------------------------------------------------------------------
 together : combined dataset of subject,Y,X with appropriate variable names.
+
 Source: local data frame [10,299 x 68]
 
    subject activity tBodyAcc mean   X tBodyAcc mean   Y tBodyAcc mean   Z tBodyAcc std   X tBodyAcc std   Y tBodyAcc std   Z tGravityAcc mean   X
@@ -490,6 +505,7 @@ Variables not shown: tGravityAcc mean Y (dbl), tGravityAcc mean Z (dbl), tGravit
   fBodyBodyGyroJerkMag mean (dbl), fBodyBodyGyroJerkMag std (dbl)
 ------------------------------------------------------------------------------------------------------------------------
 Results.txt: dataframe of output
+
 Source: local data frame [180 x 68]
 
    subject           activity tBodyAcc.mean...X tBodyAcc.mean...Y tBodyAcc.mean...Z tBodyAcc.std...X tBodyAcc.std...Y tBodyAcc.std...Z tGravityAcc.mean...X
@@ -529,6 +545,7 @@ Variables not shown: tGravityAcc.mean...Y (dbl), tGravityAcc.mean...Z (dbl), tGr
   fBodyGyro.mean...Z (dbl), fBodyGyro.std...X (dbl), fBodyGyro.std...Y (dbl), fBodyGyro.std...Z (dbl), fBodyAccMag.mean.. (dbl), fBodyAccMag.std.. (dbl),
   fBodyBodyAccJerkMag.mean.. (dbl), fBodyBodyAccJerkMag.std.. (dbl), fBodyBodyGyroMag.mean.. (dbl), fBodyBodyGyroMag.std.. (dbl),
   fBodyBodyGyroJerkMag.mean.. (dbl), fBodyBodyGyroJerkMag.std.. (dbl)
+  
 ------------------------------------------------------------------------------------------------------------------------
 
 
@@ -544,11 +561,14 @@ Hidden transformations were done from together dataframe to final result. Below 
 >     spreaded<-spread(summarized,variable,variablemeans) 
 ----------------------------------------------------------------------------------------------------------------------------------
 Using "gather function" on together to form a dataframe like below:
+
 gathered
+
 Source: local data frame [679,734 x 4]
 
    subject activity          variable observation
      (int)   (fctr)            (fctr)       (dbl)
+
        2 STANDING tBodyAcc mean   X   0.2571778
 
        2 STANDING tBodyAcc mean   X   0.2860267
@@ -573,7 +593,9 @@ Source: local data frame [679,734 x 4]
 
 --------------------------------------------------------------------------------
 Using "group_by function" to group the gathered data on the basis of subject, activity and variable.
+
 groups(grouped)
+
 [[1]]
 subject
 
@@ -584,8 +606,11 @@ activity
 variable
 --------------------------------------------------------------------------------
 Using "summarize function" to find mean on the grouped data
+
 summarized
+
 Source: local data frame [11,880 x 4]
+
 Groups: subject, activity [?]
 
    subject activity             variable variablemeans
@@ -614,11 +639,14 @@ Groups: subject, activity [?]
 
 --------------------------------------------------------------------------------
 Using "spread function" to spread the data back to normal
+
 spreaded
+
 Source: local data frame [180 x 68]
 
    subject           activity tBodyAcc mean   X tBodyAcc mean   Y tBodyAcc mean   Z tBodyAcc std   X tBodyAcc std   Y tBodyAcc std   Z tGravityAcc mean   X
      (int)             (fctr)             (dbl)             (dbl)             (dbl)            (dbl)            (dbl)            (dbl)                (dbl)
+
        1             LAYING         0.2215982      -0.040513953        -0.1132036      -0.92805647     -0.836827406      -0.82606140           -0.2488818
 
        1            SITTING         0.2612376      -0.001308288        -0.1045442      -0.97722901     -0.922618642      -0.93958629            0.8315099
@@ -652,6 +680,7 @@ Variables not shown: tGravityAcc mean Y (dbl), tGravityAcc mean Z (dbl), tGravit
   (dbl), fBodyGyro mean Y (dbl), fBodyGyro mean Z (dbl), fBodyGyro std X (dbl), fBodyGyro std Y (dbl), fBodyGyro std Z (dbl), fBodyAccMag mean (dbl),
   fBodyAccMag std (dbl), fBodyBodyAccJerkMag mean (dbl), fBodyBodyAccJerkMag std (dbl), fBodyBodyGyroMag mean (dbl), fBodyBodyGyroMag std (dbl),
   fBodyBodyGyroJerkMag mean (dbl), fBodyBodyGyroJerkMag std (dbl)
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
