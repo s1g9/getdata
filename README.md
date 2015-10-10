@@ -1,4 +1,4 @@
-Step 1) Download the script to your working directory.
+Step 1) Download the script run_analysis.R to your working directory.
 Step 2) Change the path variable on the top of the script according to your path from working directory to UCI HAR DATASET folder (Samsung data)
 
 And now you are good to go !
